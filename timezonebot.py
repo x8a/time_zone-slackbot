@@ -21,6 +21,7 @@ slack_client = WebClient(slack_bot_token)
 def handle_mentions(event_data):
     event = event_data["event"]
     print(event)
+    print(event["blocks"][0]["elements"][0]["elements"][0]["text"])
     slack_client.chat_postMessage(
         channel=event["channel"],
         text=f"You said:\n>{event['text']}",
